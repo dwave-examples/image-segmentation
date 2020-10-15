@@ -109,9 +109,9 @@ if random:
     segmented_image[im_seg_coldiff != 0] = (255, 0, 0)
 else:
     segmented_image = im_segmented
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 fig, (ax1, ax2) = plt.subplots(1, 2)
-im_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 ax1.imshow(img)
 ax1.axes.xaxis.set_visible(False)
 ax1.axes.yaxis.set_visible(False)
@@ -119,5 +119,3 @@ ax2.imshow(segmented_image, cmap='Greys')
 ax2.axes.xaxis.set_visible(False)
 ax2.axes.yaxis.set_visible(False)
 plt.savefig("output.png")
-plt.show()
-
