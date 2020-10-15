@@ -7,6 +7,8 @@ DQM object from a set of numpy vectors.
 
 Additionally, this repository demonstrates the ability of D-Wave's Leap IDE to
 automatically load a new workspace with specialized packages using a YAML file.
+In particular, this demo utilizes the OpenCV package that is popular for
+computer vision applications.
 
 ## Usage
 
