@@ -2,8 +2,8 @@
 
 In this example, we show a basic image segmentation algorithm to partition an
 image into segments based on their pixel values.  To solve this problem, we use
-D-Wave's hybrid discrete quadratic model solver, and demonstrate how to build a
-DQM object from a set of numpy vectors.
+the new hybrid discrete quadratic model solver available in Leap, and
+demonstrate how to build a DQM object from a set of numpy vectors.
 
 Additionally, this repository demonstrates the ability of D-Wave's Leap IDE to
 automatically load a new workspace with specialized packages using a YAML file.
