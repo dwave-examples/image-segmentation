@@ -20,7 +20,7 @@ The user is then prompted for the number of segments we wish to partition the in
 
 After the program executes, a file is saved as ```output.png``` that shows the original image on the left and the partition outlines in an image on the right.
 
-**Note**: For this demo to run relatively quickly, image sizes should be kept below 50x50 pixels.
+**Note**: For this demo to run relatively quickly, image sizes should be kept below 50x50 pixels with fewer than 10 segments.
 
 ## Building the DQM
 
