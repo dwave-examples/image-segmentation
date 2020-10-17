@@ -1,2 +1,3 @@
 opencv-python-headless==4.4.0.42
-
+dwave-ocean-sdk
+matplotlib
