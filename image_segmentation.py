@@ -66,28 +66,28 @@ else:
         print("Must input an integer.")
         num_segments = int(input("\n\tEnter number of segments > "))
 
-    img = np.zeros((dims,dims,3), np.uint8)
+    img = np.zeros((dims, dims, 3), np.uint8)
     img_rows = np.sort(np.random.choice(dims, num_segments, replace=False))
     img_cols = np.sort(np.random.choice(dims, num_segments, replace=False))
     for num in range(num_segments-1):
-        color = np.random.randint(0,255,3)
+        color = np.random.randint(0, 255, 3)
         img[img_rows[num]:, img_cols[num]:, :] = color
 
 # Build the DQM and set biases according to pixel similarity
 print("\nPreparing DQM object...")
 rows, cols, _ = img.shape
 linear_biases = np.zeros(rows*cols*num_segments)
-case_starts = np.arange(rows*cols)*num_segments
-num_interactions = rows*cols*(rows*cols-1)*num_segments/2
+case_starts = np.arange(rows*cols) * num_segments
+num_interactions = rows * cols * (rows*cols-1) * num_segments / 2
 qb_rows = []
 qb_cols = []
 qb_biases = []
 for i in range(rows*cols):
     for j in range(i+1, rows*cols):
         for case in range(num_segments):
-            qb_rows.append(i*num_segments+case)
-            qb_cols.append(j*num_segments+case)
-            qb_biases.append(weight(i,j,img))
+            qb_rows.append(i*num_segments + case)
+            qb_cols.append(j*num_segments + case)
+            qb_biases.append(weight(i, j, img))
 quadratic_biases = (np.asarray(qb_rows), np.asarray(qb_cols), np.asarray(qb_biases))
 dqm = DiscreteQuadraticModel.from_numpy_vectors(case_starts, linear_biases, quadratic_biases)
 
@@ -102,7 +102,7 @@ sampleset = sampler.sample_dqm(dqm)
 sample = sampleset.first.sample
 
 print("\nProcessing solution...")
-im_segmented = np.zeros((rows,cols))
+im_segmented = np.zeros((rows, cols))
 for key, val in sample.items():
     x, y = unindexing(key)
     im_segmented[x,y] = val
@@ -110,11 +110,11 @@ for key, val in sample.items():
 if random:
     row_indices = [1+i for i in range(rows-1)]
     row_indices.append(0)
-    im_segmented_rowwrap = im_segmented[row_indices,:]
+    im_segmented_rowwrap = im_segmented[row_indices, :]
 
     col_indices = [1+i for i in range(cols-1)]
     col_indices.append(0)
-    im_segmented_colwrap = im_segmented[:,col_indices]
+    im_segmented_colwrap = im_segmented[:, col_indices]
 
     im_seg_rowdiff = im_segmented - im_segmented_rowwrap
     im_seg_coldiff = im_segmented - im_segmented_colwrap
