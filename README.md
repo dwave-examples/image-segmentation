@@ -2,13 +2,11 @@
 
 In this example, we show a basic image segmentation algorithm to partition an
 image into segments based on their pixel values.  To solve this problem, we use
-the new hybrid discrete quadratic model solver available in Leap, and
-demonstrate how to build a DQM object from a set of numpy vectors.
+the hybrid discrete quadratic model solver available in Leap, and demonstrate
+how to build a DQM object from a set of numpy vectors.
 
-Additionally, this repository demonstrates the ability of D-Wave's Leap IDE to
-automatically load a new workspace with specialized packages using a YAML file.
-In particular, this demo utilizes the OpenCV package that is popular for
-computer vision applications.
+This example uses a YAML file to automatically load its workspace with a
+specialized package, OpenCV, that is popular for computer vision applications.
 
 ## Usage
 
@@ -25,8 +23,8 @@ Alternatively, the user can specify an input image such as
 
 ```python image_segmentation.py test_2_segments.png```
 
-The user is then prompted for the number of segments we wish to partition the
-input image into.
+The program prompts the user for the number of segments to partition the image
+into.
 
 After the program executes, a file is saved as ```output.png``` that shows the
 original image on the left and the partition outlines in an image on the right.
