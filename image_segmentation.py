@@ -78,7 +78,7 @@ print("\nPreparing DQM object...")
 rows, cols, _ = img.shape
 linear_biases = np.zeros(rows*cols*num_segments)
 case_starts = np.arange(rows*cols) * num_segments
-num_interactions = rows * cols * (rows*cols-1) * num_segments / 2
+num_interactions = rows * cols * (rows*cols - 1) * num_segments / 2
 qb_rows = []
 qb_cols = []
 qb_biases = []
