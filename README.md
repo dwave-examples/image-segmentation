@@ -5,8 +5,10 @@ image into segments based on their pixel values.  To solve this problem, we use
 the hybrid discrete quadratic model solver available in Leap, and demonstrate
 how to build a DQM object from a set of numpy vectors.
 
-This example uses a YAML file to automatically load its workspace with a
-specialized package, OpenCV, that is popular for computer vision applications.
+Additionally, this repository demonstrates the ability of D-Wave's Leap IDE to
+automatically load a new workspace with specialized packages using a YAML file.
+In particular, this demo utilizes the OpenCV package that is popular for
+computer vision applications.
 
 ## Usage
 
@@ -28,6 +30,13 @@ into.
 
 After the program executes, a file is saved as ```output.png``` that shows the
 original image on the left and the partition outlines in an image on the right.
+
+A few example images have been provided.
+
+- ```test_2_segments.png``` is a small image with 2 segments.
+- ```test_4_segments.png``` is a small image with 4 segments.
+- ```test_image.jpeg``` is a larger image with 2 segments (foreground and
+background) that will take longer to run.
 
 **Note**: For this demo to run relatively quickly, image sizes should be kept
 below 50x50 pixels with fewer than 10 segments. Several small image files are
