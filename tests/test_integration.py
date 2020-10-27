@@ -22,8 +22,8 @@ project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 class IntegrationTests(unittest.TestCase):
 
     def test_image_segmentation(self):
-        demo_file = os.path.join(project_dir, 'scheduler.py')
-        p = Popen([sys.executable, demo_file], stdout=PIPE, stdin=PIPE, stderr=STDOUT)
+        file_name = os.path.join(project_dir, 'image_segmentation.py')
+        p = Popen([sys.executable, file_name], stdout=PIPE, stdin=PIPE, stderr=STDOUT)
         p.stdin.write(b'10\n')
         p.stdin.write(b'10\n')
         output = p.communicate()[0]
