@@ -15,6 +15,8 @@
 import cv2
 import sys
 import numpy as np
+import matplotlib
+matplotlib.use("agg")    # must select backend before importing pyplot
 import matplotlib.pyplot as plt
 from dimod import DiscreteQuadraticModel
 from dwave.system import LeapHybridDQMSampler
