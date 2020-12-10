@@ -1,3 +1,7 @@
+[![Linux/Mac/Windows build status](
+  https://circleci.com/gh/dwave-examples/image-segmentation.svg?style=svg)](
+  https://circleci.com/gh/dwave-examples/image-segmentation)
+
 # Image Segmentation
 
 In this example, we show a basic image segmentation algorithm to partition an
