@@ -98,7 +98,7 @@ print("\nRunning DQM solver...")
 sampler = LeapHybridDQMSampler()
 
 # Solve the problem using the DQM solver
-sampleset = sampler.sample_dqm(dqm)
+sampleset = sampler.sample_dqm(dqm, label='Example - Image Segmentation')
 
 # Get the first solution
 sample = sampleset.first.sample
