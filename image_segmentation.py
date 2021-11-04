@@ -75,6 +75,10 @@ else:
         color = np.random.randint(0, 255, 3)
         img[img_rows[num]:, img_cols[num]:, :] = color
 
+# Create a version of the image data that is signed, so that subtraction will
+# not wrap around when computing differences.
+img_signed = img.astype(int)
+
 # Build the DQM and set biases according to pixel similarity
 print("\nPreparing DQM object...")
 rows, cols, _ = img.shape
@@ -89,7 +93,7 @@ for i in range(rows*cols):
         for case in range(num_segments):
             qb_rows.append(i*num_segments + case)
             qb_cols.append(j*num_segments + case)
-            qb_biases.append(weight(i, j, img))
+            qb_biases.append(weight(i, j, img_signed))
 quadratic_biases = (np.asarray(qb_rows), np.asarray(qb_cols), np.asarray(qb_biases))
 dqm = DiscreteQuadraticModel.from_numpy_vectors(case_starts, linear_biases, quadratic_biases)
 
