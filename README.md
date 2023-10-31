@@ -12,11 +12,6 @@ image into segments based on their pixel values.  To solve this problem, we use
 the hybrid discrete quadratic model solver available in Leap, and demonstrate
 how to build a DQM object from a set of numpy vectors.
 
-Additionally, this repository demonstrates the ability of D-Wave's Leap IDE to
-automatically load a new workspace with specialized packages using a YAML file.
-In particular, this demo utilizes the OpenCV package that is popular for
-computer vision applications.
-
 ## Usage
 
 To run the demo, type the command:
@@ -60,11 +55,3 @@ values for more alike colors, and larger values for more different colors.
 Using this weight function, we assign quadratic biases between pixels in the
 same cases.  As the solver minimizes the energy landscape, it is then minimizing
 the difference between pixels placed in the same segment or partition.
-
-## Initializing the Leap IDE
-
-By creating the file ```.gitpod.yml``` in this repository, we are instructing
-the Leap IDE to load a new workspace and run the corresponding tasks listed in
-the file.  In this case, the task is to install the packages indicated in the
-file ```requirements.txt```.  When a workspace is created from this repository,
-these packages will be automatically installed without any action from the user.
